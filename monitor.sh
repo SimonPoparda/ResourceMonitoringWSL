@@ -1,12 +1,13 @@
 #!/bin/bash
 
+export $(grep -v '^#' .env | xargs)
+
 # Przejdź do katalogu projektu
-cd /home/maple/projects/computer_performance_project
+cd $PROJECT_PATH
 
 # Aktywuj środowisko venv
 source venv/bin/activate
 
 # Uruchom skrypt
-python main.py >> /home/maple/projects/computer_performance_project/monitor_log.log 2>&1
+python main.py >> $PROJECT_PATH/monitor_log.log 2>&1
 
-#cronjob: */1 * * * * /home/maple/projects/computer_performance_project/monitor.sh
