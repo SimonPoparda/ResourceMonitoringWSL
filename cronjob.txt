@@ -1,0 +1,2 @@
+dodaj jeżeli chcesz uruchamiać skrypt monitor.sh co minutę
+*/1 * * * * /home/maple/projects/computer_performance_project/monitor.sh
