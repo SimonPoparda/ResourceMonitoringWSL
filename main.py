@@ -1,13 +1,22 @@
 import psycopg2
 import psutil
+from dotenv import load_dotenv
+import os
 from datetime import datetime
+
+load_dotenv()
+
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_name = os.getenv("DB_NAME")
+db_host = os.getenv("DB_HOST")
 
 # Połączenie z PostgreSQL
 conn = psycopg2.connect(
-    dbname="monitoring_project",
-    user="monitoring_user",
-    password="root",
-    host="localhost"
+    dbname=db_name,
+    user=db_user,
+    password=db_password,
+    host=db_host
 )
 cur = conn.cursor()
 
